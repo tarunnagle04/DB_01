@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Mongodb handson one</h3>
+    <p>1.Create a database , give it name like ""Human_Resource"". Create a collection inside this named ""employee""</p>
+    <p>Query: use Human_Resource</p>
+    <p>Query: db.createCollection("employee")</p>
+
+    <p>2.Query the collection ""employee"" and list all the documents</p>
+    <p>Query:  db.employee.find()</p>
+
+    <p>3.Query the collection ""employee"" and list the employees who are having salary more than 30000</p>
+    <p>Query: db.employee.find({ salary : { $gt : "30000" }})</p>
+
+    <p>4.Query the collection ""employee"" and list the employees who are having experience more than 2 years.</p>
+    <p>Query: db.employee.find({ overallExp : { $gt : "2" }})</p>
+
+    <p>5.Query the collection ""employee"" and list the employees who are graduated after 2015 and having experience more than 1 year</p>
+    <p>Query: db.employee.find({$and: [{ yearGrad : { $gt : "2015" }},
+        { overallExp : { $gt : "1" }}]})</p>
+
+    <p>6.Query the collection ""employee"" and update the salary of the employee whose salary is greater than 70000 to 65000.</p>
+    <p>Query: db.employee.updateMany(
+        { salary : { $gt : "70000" }},
+        { $set: { "salary": 65000 } })</p>
+
+    <p>7.Delete all the documents from ""employee"" where last company is Y"</p>
+    <p>Query: db.employee.deleteMany( { lastCompany: "Y" } )</p>
+</body>
+</html>
